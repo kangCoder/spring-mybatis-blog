@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:blog  # Memory Mode (??)
+    username: sa
+    password:
+
+  h2:
+    console:
+      enabled: true # H2 Console? ???? ??
+      path: /h2-console
+
+  sql:
+    init:
+      mode: always
+      encoding: UTF-8
+
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+
+springdoc:
+  default-consumes-media-type: application/json;charset=UTF-8
+  default-produces-media-type: application/json;charset=UTF-8
+  swagger-ui:
+    path: /swagger-ui.html
+
+server:
+  port: 8081
