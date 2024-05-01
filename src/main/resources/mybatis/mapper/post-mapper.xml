@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.exercise.blog.mapper.PostMapper">
+
+  <select id="findAll" resultType="com.exercise.blog.dto.Post">
+    SELECT *
+    FROM post;
+  </select>
+
   <select id="findOne" resultType="com.exercise.blog.dto.Post">
-    select *
+    SELECT *
     FROM post as p
+           JOIN users as u
+                ON p.user_id = u.id
     WHERE p.id = #{id};
   </select>
 </mapper>

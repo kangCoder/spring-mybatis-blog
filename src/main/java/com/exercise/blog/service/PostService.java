@@ -12,7 +12,13 @@ public class PostService {
 
   private final PostMapper postMapper;
 
+  public List<Post> getAllPost() {
+    return postMapper.findAll();
+  }
+
   public Post getPostById(Integer id) {
+    Post post = postMapper.findOne(id);
+    System.out.println(post.getUserId());
     return postMapper.findOne(id);
   }
 }
